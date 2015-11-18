@@ -1,0 +1,286 @@
+
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+ 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+	<script>
+	$(function(){
+		$('#register').submit(function(event){
+			$.getJSON('/static.json', function(data){
+				var frm = $("#frm").val();
+				var to = $("#to").val();
+				var fare = {};
+				for(var key in data){
+					if (typeof data[key][frm] != "undefined" && typeof data[key][to] != "undefined")
+					{
+						var a = data[key][frm]["S.No."];
+						var b = data[key][to][a];
+						fare[key] = b;
+					}
+				}
+				var x = 0;
+				for (var key in fare)
+				{
+					x++;
+				}
+				if (x == 0)
+				{
+					alert("Invalid input");
+				}
+				else
+				{
+					var m = JSON.stringify(fare);
+					$('#fare').html(m);
+				}
+			});
+			return false;
+		});
+	});
+	</script>
+	<section class="page-title background-title dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="text-uppercase">Trip Planner</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section class="body-content page-content">
+        <div class="container">
+			
+				<h2>Plan your Journey Ahead</h2>
+			<form id ="register" class="form-group">
+			<input id = "frm" type="text" list="from" name="froms" value="From"/></br>
+			    <datalist id="from">
+			      <option value="Nadra Bus Stand">
+			      <option value="Alpana Tiraha">
+			      <option value="Bharat Talkies">
+			      <option value="Patra Pul">
+			      <option value="Bharkhedi R/Crossing">
+					<option value="Laxmi Upaj Mandi">
+					<option value="Bogda Pul">
+					<option value="Jinshi Tiraha">
+					<option value="Subhash R/Crossing">
+					<option value="SBI LHO">
+					<option value="Post Office">
+					<option value="D.B.Mall">
+					<option value="Board Office">
+					<option value="Jyoti Talkies">
+					<option value="Kasturba Nagar">
+					<option value="ISBT">
+					<option value="Doodh Diary">
+					<option value="Habibganj R/Station">
+					<option value="Habibganj Naka">
+					<option value="Ampri (RRL)">
+					<option value="Narayan Nagar">
+					<option value="B.U. university">
+					<option value="Vidhya Nagar">
+					<option value="Bagsevaniya Junction">
+					<option value="Ahamadpur R/C">
+					<option value="Paras Hermitage">
+					<option value="Chinar Fortune City">
+					<option value="Shri Ram Colony">
+					<option value="R.K.D.F. College">
+					<option value="Allahabad Bank">
+					<option value="Scope College">
+					<option value="11 Miles">
+					<option value="Fun City">
+					<option value="Indus Town">
+					<option value="Samardha">
+					<option value="Mandideep">
+					<option value="HEG Mandideep">
+					<option value="CHIRAYU HOSPITAL">
+					<option value="NAI BASTI">
+					<option value="BAISHA KHEDI">
+					<option value="Sehore Naka">
+					<option value="Kali Mandir Bairagarh">
+					<option value="Chanchal Chouraha">
+					<option value="Civil Hospital">
+					<option value="St Hirdaram Chouraha">
+					<option value="Pump House">
+					<option value="Sundarvan Garden">
+					<option value="Halalpur Bus Stand">
+					<option value="Lalghati">
+					<option value="KOH-E-FIZA">
+					<option value="Vip Guest House">
+					<option value="Collectorate">
+					<option value="SBI CHOURAHA">
+					<option value="Royal Market">
+					<option value="Peergate">
+					<option value="Moti Masjid">
+					<option value="Kamla Park">
+					<option value="Polytechnic">
+					<option value="Ravindra Bhawan">
+					<option value="Roshanpura">
+					<option value="New Market">
+					<option value="NANKE PETROL PUMP">
+					<option value="PRAKASH TARUN PUSHKAR">
+					<option value="1250 HOSPITAL">
+					<option value="RED CROSS HOSPITAL">
+					<option value="CONGRESS BHAWAN">
+					<option value="VYAPAM">
+					<option value="Iiper">
+					<option value="Chan">
+					<option value="Deepdi">
+					<option value="Rhythm Park">
+					<option value="Bangrasiya Tiraha">
+					<option value="CRPF Camp Bangrasiya">
+					<option value="Rang Mahal">
+					<option value="Teen Shed">
+					<option value="Mata Mandir">
+					<option value="MACT Tiraha">
+					<option value="Harsh Vardhan Nagar">
+					<option value="Panchsheel Nagar">
+					<option value="Patrakar Colony">
+					<option value="Kolar Tiraha">
+					<option value="Buddh Mandir">
+					<option value="Chinar Woodland">
+					<option value="Suyash Hospital">
+					<option value="Deepak Socity">
+					<option value="Nehar Puliya">
+					<option value="Mahabali Nagar">
+					<option value="Beema Kunj">
+					<option value="Nayapura Colony">
+					<option value="Lalita Nagar">
+					<option value="Sanskar Garden">
+					<option value="Gehun Kheda">
+					<option value="Bairagarh Chichli">
+					<option value="Katara Hills">
+					<option value="Bag Mughaliya Extension">
+					<option value="Laharpur">
+					<option value="Mt. Carmel School">
+					<option value="Arvind Vihar">
+					<option value="Raja Bhoj Mode">
+					<option value="Sr. L.I.G. Mode">
+					<option value="Naveen  School">
+					<option value="Amrai Tiraha">
+					<option value="Amrai Colony">
+					<option value="9-A-Market">
+					<option value="S.P.S.Mode">
+					<option value="A.I.I.M.S.">
+					<option value="Shiv Mandir">
+					<option value="Alkapuri">
+					<option value="Kasturba Tiraha">
+					<option value="Habibganj Naka">
+					<option value="Sargam Talkies">
+					<option value="BJP Office">
+					<option value="7 No.Stop">
+					<option value="5 No. Stop">
+					<option value="1250/ Pranami Mandir">
+					<option value="Narmada Bhawan">
+					<option value="Jain Mandir">
+					<option value="Teen Shed">
+					<option value="Jawahar Chowk">
+					<option value="City Depot Chouraha">
+					<option value="P&T Chouraha">
+					<option value="Govt. Quarters">
+					<option value="Kamla Nagar">
+					<option value="Nehru Nagar">
+					<option value="Gandhi Nagar Bus Stand">
+					<option value="Gandhi Nagar">
+					<option value="New Gandhi Nagar">
+					<option value="Asharam Tiraha">
+					<option value="R.G.P.V.">
+					<option value="New Jail">
+					<option value="Nayapura New Jail">
+					<option value="Sanjeev Nagar">
+					<option value="Truba College">
+					<option value="Shiv Parvati Mandir">
+					<option value="Kanak Marriage Garden">
+					<option value="Karond Chouraha">
+					<option value="Bhopal Memorial Hospital">
+					<option value="Shiv Nagar">
+					<option value="Krishi Upaj Mandi">
+					<option value="J.P. Nagar">
+					<option value="D.I.G. Bunglow">
+					<option value="Kazi Camp">
+					<option value="Sindhi Colony">
+					<option value="Bhopal Talkies">	
+					<option value="Central Library">	
+					<option value="Lady Hospital">	
+					<option value="Jahangirabad">	
+					<option value="PHQ">	
+					<option value="Police Control Room">	
+					<option value="Old Vidhan Sabha">	
+					<option value="6 No. Stop">	
+					<option value="Subhash School">	
+					<option value="7 NO.STOP">	
+					<option value="Bittan Market">	
+					<option value="Habibganj Thana">	
+					<option value="Baans Khedi">	
+					<option value="1100 Quater">	
+					<option value="10.5 No.Stop">	
+					<option value="11 No.Stop">	
+					<option value="Sai Board">	
+					<option value="12 No.Stop">	
+					<option value="Ishwar Nagar">
+					<option value="Sevoy Complex">
+					<option value="Nehar">
+					<option value="Tilak Nagar">
+					<option value="Indus Garden">
+					<option value="Rohit Nagar Ph-II">
+					<option value="Aakriti Eco City">
+					<option value="Salaiya">
+					<option value="Over Bridge Chouraha">
+					<option value="Peoples College">
+					<option value="Karound Chouraha">				
+					<option value="Housing Colony">
+					<option value="Arif Nagar">
+					<option value="DATA COLONY">
+					<option value="PANCHAWATI">
+					<option value="GPO">
+					<option value="TAJ MAHAL/SHAHJANAWAD">
+					<option value="SABJI MANDI">
+					<option value="KV No 1">
+					<option value="Civil Court">
+					<option value="Goutam Nagar">
+					<option value="Satpuda">
+					<option value="Shanti Niketan">
+					<option value="Janta Quatar">
+					<option value="Sant Peter Church">
+					<option value="Subhas Fatak">
+					<option value="Prabhat petrol Pump">
+					<option value="Punjabi Bagh">
+					<option value="Bijli Colony">
+					<option value="Govind Pura">
+					<option value="Industrial Gate">
+					<option value="I.T.I.">
+					<option value="J.K. Road Tiraha">
+					<option value="Bhel Gate -1">
+					<option value="Jubli Gate - Bhel">
+					<option value="Bima Hospital">
+					<option value="Piplani Pump">
+					<option value="Kalpana Nagar">
+					<option value="Ratnagiri By Pass">
+					<option value="Ram Mandir">
+					<option value="Siddhartha Lake City">
+					<option value="Patel Nagar">
+					<option value="Oriental College">
+					<option value="Coach Factory">
+					<option value="Indus Tiraha">
+					<option value="State Bank ATM">
+					<option value="Dwarka Nagar">
+					<option value="Sai Mandir">
+					<option value="Railway Colony">
+					<option value="GRP Thana">
+					<option value="Platform No 1">
+					<option value="High Secondary School">
+					<option value="Kammu Ka Bagh">
+					<option value="Pushpa Nagar Chouraha">
+					<option value="Green Park">
+					<option value="Ashoka Garden Thana">
+					<option value="New Ashoka Garden">
+					<option value="Swami Vivekanand Chouraha">
+					<option value="Champion School">
+					<option value="Shaitan singh">
+					<option value="Manisha Market">
+					<option value="Sarvadharma Colony">
+			    </datalist>
+				<input id = "to" type="text" list="from" name="destination" value="Destination"/></br>			   
+				<input type="submit" value="Go"><br/>
+				Route: <span id="route"> Not Defined</span><br/>
+				Distance: <span id="distance"> Not Defined</span><br/>
+				Fare(inr): <span id="fare"> Not Defined</span>
+			</form>
+		</div>
+	</section>
